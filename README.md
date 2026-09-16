@@ -801,8 +801,7 @@ N'utilisez pas les techniques ou outils présentés contre des systèmes, résea
 # 👥 Auteurs
 
 Projet réalisé en binôme dans le cadre d'un travail pratique autour de la **Digital Forensics & Incident Response (DFIR)**, de la corrélation d'événements et de l'analyse de sécurité.
-Réalisé par : Hamdaoui Abdelbari
-              Laaroussi Imane
+Réalisé par : Laaroussi Imane et Hamdaoui Abdelbari .
 
 ---
 
