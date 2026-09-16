@@ -1,0 +1,18 @@
+# Environment variables / credentials
+.env
+
+# Python
+venv/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+
+# Elasticsearch credentials / certificates
+*.key
+*.pem
