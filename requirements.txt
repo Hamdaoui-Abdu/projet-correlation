@@ -1,0 +1,4 @@
+lxml
+scapy
+elasticsearch
+python-dotenv
