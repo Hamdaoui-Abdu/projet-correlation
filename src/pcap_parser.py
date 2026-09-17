@@ -6,9 +6,6 @@ from pathlib import Path
 from scapy.all import PcapReader, IP, IPv6, TCP, UDP
 
 
-# ============================================================
-# 1. TIMESTAMP NORMALIZATION
-# ============================================================
 
 def format_timestamp(packet_time):
     """
@@ -23,9 +20,6 @@ def format_timestamp(packet_time):
     return timestamp.isoformat().replace("+00:00", "Z")
 
 
-# ============================================================
-# 2. IP EXTRACTION
-# ============================================================
 
 def extract_ip_addresses(packet):
     """
@@ -48,9 +42,6 @@ def extract_ip_addresses(packet):
     return None, None
 
 
-# ============================================================
-# 3. TRANSPORT LAYER EXTRACTION
-# ============================================================
 
 def extract_transport(packet):
     """
@@ -74,10 +65,6 @@ def extract_transport(packet):
 
     return None, None, None
 
-
-# ============================================================
-# 4. PARSE A SINGLE PACKET
-# ============================================================
 
 def parse_packet(packet):
     """
@@ -109,9 +96,6 @@ def parse_packet(packet):
     return event
 
 
-# ============================================================
-# 5. PARSE COMPLETE PCAP
-# ============================================================
 
 def parse_pcap(pcap_path):
     """
@@ -148,9 +132,6 @@ def parse_pcap(pcap_path):
     return events
 
 
-# ============================================================
-# 6. SAVE JSON
-# ============================================================
 
 def save_json(events, output_path):
     """
@@ -177,9 +158,6 @@ def save_json(events, output_path):
         )
 
 
-# ============================================================
-# 7. COMMAND LINE
-# ============================================================
 
 def main():
 
@@ -240,9 +218,6 @@ def main():
     )
 
 
-# ============================================================
-# ENTRY POINT
-# ============================================================
 
 if __name__ == "__main__":
     main()
