@@ -6,9 +6,6 @@ from elasticsearch import Elasticsearch
 from elasticsearch.helpers import bulk
 
 
-# ============================================================
-# 1. LOAD JSON
-# ============================================================
 
 def load_json(file_path):
     """
@@ -24,9 +21,6 @@ def load_json(file_path):
         return json.load(file)
 
 
-# ============================================================
-# 2. FLATTEN EVENTS
-# ============================================================
 
 def flatten_matched_event(event):
     """
@@ -74,9 +68,6 @@ def flatten_simple_event(event):
     return event
 
 
-# ============================================================
-# 3. BUILD BULK ACTIONS
-# ============================================================
 
 def build_actions(events, index_name, flatten_function):
     """
@@ -94,9 +85,6 @@ def build_actions(events, index_name, flatten_function):
         }
 
 
-# ============================================================
-# 4. CONNECT TO ELASTICSEARCH
-# ============================================================
 
 def build_client(host, user, password, verify_certs):
     """
@@ -117,10 +105,6 @@ def build_client(host, user, password, verify_certs):
 
     return client
 
-
-# ============================================================
-# 5. MAIN
-# ============================================================
 
 def main():
 
@@ -207,9 +191,6 @@ def main():
             print(f"    - {error}")
 
 
-# ============================================================
-# ENTRY POINT
-# ============================================================
 
 if __name__ == "__main__":
     main()
