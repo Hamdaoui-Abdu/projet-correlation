@@ -4,10 +4,6 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 
-# ============================================================
-# 1. LOAD JSON EVENTS
-# ============================================================
-
 def load_json(file_path):
     """
     Load events from a JSON file.
@@ -26,9 +22,6 @@ def load_json(file_path):
     return events
 
 
-# ============================================================
-# 2. TIMESTAMP NORMALIZATION
-# ============================================================
 
 def parse_timestamp(value):
     """
@@ -57,9 +50,6 @@ def parse_timestamp(value):
         return None
 
 
-# ============================================================
-# 3. TIME DIFFERENCE
-# ============================================================
 
 def time_difference(event1, event2):
     """
@@ -78,9 +68,6 @@ def time_difference(event1, event2):
     return delta
 
 
-# ============================================================
-# 4. FIELD NORMALIZATION
-# ============================================================
 
 def normalize_protocol(protocol):
     if protocol is None:
@@ -97,9 +84,6 @@ def normalize_port(port):
         return None
 
 
-# ============================================================
-# 5. NETWORK MATCHING
-# ============================================================
 
 def network_match(sysmon_event, pcap_event):
     """
@@ -146,9 +130,6 @@ def network_match(sysmon_event, pcap_event):
     return None
 
 
-# ============================================================
-# 6. FIND BEST PCAP MATCH
-# ============================================================
 
 def find_best_match(sysmon_event, pcap_events, used_pcap_indexes, tolerance=2.0):
     """
@@ -188,9 +169,6 @@ def find_best_match(sysmon_event, pcap_events, used_pcap_indexes, tolerance=2.0)
     return (best_match, best_delta, best_direction, best_index)
 
 
-# ============================================================
-# 7. CORRELATE NETWORK EVENTS (Sysmon <-> PCAP)
-# ============================================================
 
 def correlate_events(sysmon_events, pcap_events, tolerance=2.0):
     """
@@ -240,9 +218,6 @@ def correlate_events(sysmon_events, pcap_events, tolerance=2.0):
     return (matched, sysmon_only, pcap_only)
 
 
-# ============================================================
-# 8. PROCESS TREE (PID / PPID)
-# ============================================================
 
 def build_process_tree(sysmon_events):
     """
@@ -299,10 +274,6 @@ def build_process_tree(sysmon_events):
     return sysmon_events
 
 
-# ============================================================
-# 9. MITRE ATT&CK MAPPING
-# ============================================================
-
 # Each rule: (technique_id, technique_name, function that
 # returns True if the event matches)
 
@@ -358,9 +329,6 @@ def map_mitre_technique(event):
     return None, None
 
 
-# ============================================================
-# 10. SUSPICION SCORE
-# ============================================================
 
 SCORE_RULES = [
     (lambda e: _has(e.get("command_line"), "-encodedcommand"), 40),
@@ -404,9 +372,6 @@ def score_to_severity(score):
         return "low"
 
 
-# ============================================================
-# 11. ENRICH EVENTS (MITRE + SCORE)
-# ============================================================
 
 def enrich_event(event):
     """
@@ -440,9 +405,6 @@ def enrich_all(matched, sysmon_only, pcap_only):
     return matched, sysmon_only, pcap_only
 
 
-# ============================================================
-# 12. BUILD OUTPUT
-# ============================================================
 
 def build_output(matched, sysmon_only, pcap_only):
     output = {
@@ -467,9 +429,6 @@ def build_output(matched, sysmon_only, pcap_only):
     return output
 
 
-# ============================================================
-# 13. SAVE JSON
-# ============================================================
 
 def save_json(data, output_path):
     output_path = Path(output_path)
@@ -478,10 +437,6 @@ def save_json(data, output_path):
     with output_path.open("w", encoding="utf-8") as file:
         json.dump(data, file, indent=4, ensure_ascii=False)
 
-
-# ============================================================
-# 14. MAIN
-# ============================================================
 
 def main():
 
@@ -539,9 +494,6 @@ def main():
     print(f"[+] Output file: {args.output}")
 
 
-# ============================================================
-# ENTRY POINT
-# ============================================================
 
 if __name__ == "__main__":
     main()
