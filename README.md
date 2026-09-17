@@ -1,4 +1,4 @@
-# 🛡️ DFIR Correlation — Sysmon & PCAP
+#  DFIR Correlation — Sysmon & PCAP
 
 Pipeline DFIR développé en **Python** permettant d'analyser et de corréler des événements **Windows Sysmon** avec du trafic réseau **PCAP** afin de reconstruire des activités suspectes, enrichir les événements avec des informations **MITRE ATT&CK**, calculer un **score de suspicion** et centraliser les résultats dans **Elasticsearch / Kibana**.
 
@@ -6,7 +6,7 @@ Le projet a été développé et testé dans un laboratoire virtualisé contrôl
 
 ---
 
-## 🎯 Objectif du projet
+##  Objectif du projet
 
 Lors d'une investigation DFIR, une seule source de données ne fournit généralement pas toute la visibilité nécessaire.
 
@@ -44,7 +44,7 @@ Le pipeline permet notamment de :
 
 ---
 
-# 🏗️ Architecture du laboratoire
+#  Architecture du laboratoire
 
 Le laboratoire repose sur **VirtualBox** et un réseau privé :
 
@@ -213,7 +213,7 @@ docs/scenarios.md
 
 ---
 
-# 🔄 Pipeline DFIR
+#  Pipeline DFIR
 
 Le projet suit plusieurs étapes.
 
@@ -263,7 +263,7 @@ wireshark-log.json ─────────────┘
 
 ---
 
-# 🧩 Composants Python
+#  Composants Python
 
 ## `sysmon_parser.py`
 
@@ -342,7 +342,7 @@ Les credentials Elasticsearch sont récupérés depuis un fichier `.env` local a
 
 ---
 
-# 📁 Structure du projet
+#  Structure du projet
 
 ```text
 projet-correlation/
@@ -379,7 +379,7 @@ projet-correlation/
 
 ---
 
-# 🛠️ Technologies utilisées
+#  Technologies utilisées
 
 ### DFIR / Sécurité
 
@@ -416,7 +416,7 @@ projet-correlation/
 
 ---
 
-# ⚙️ Installation
+#  Installation
 
 ## 1. Cloner le repository
 
@@ -455,7 +455,7 @@ python-dotenv
 
 ---
 
-# 🔐 Configuration Elasticsearch
+#  Configuration Elasticsearch
 
 Les credentials Elasticsearch ne doivent **jamais être stockés directement dans le code Python**.
 
@@ -487,7 +487,7 @@ Le fichier `.env` est exclu du repository grâce au `.gitignore`.
 
 ---
 
-# ▶️ Utilisation
+#  Utilisation
 
 ## Étape 1 — Parser Sysmon
 
@@ -542,7 +542,7 @@ Ce fichier contient les événements enrichis et les résultats produits par le 
 
 ---
 
-# 🔎 Elasticsearch
+#  Elasticsearch
 
 Assurez-vous qu'Elasticsearch fonctionne :
 
@@ -599,7 +599,7 @@ GET /dfir-events/_search
 
 ---
 
-# 📊 Kibana
+#  Kibana
 
 Kibana est utilisé pour explorer et visualiser les événements générés par le pipeline.
 
@@ -632,7 +632,7 @@ comme champ temporel lorsque celui-ci est disponible dans les documents.
 
 ---
 
-# 📈 Dashboard DFIR
+#  Dashboard DFIR
 
 Le dashboard peut notamment présenter :
 
@@ -686,7 +686,7 @@ mitre_technique_id: "T1059.001"
 
 ---
 
-# 🧠 MITRE ATT&CK
+#  MITRE ATT&CK
 
 Les scénarios du laboratoire sont associés aux techniques suivantes :
 
@@ -702,7 +702,7 @@ Le mapping MITRE permet d'apporter du contexte aux événements techniques et de
 
 ---
 
-# 🔍 Exemple de chaîne d'investigation
+#  Exemple de chaîne d'investigation
 
 Un scénario réseau peut produire une chaîne similaire à :
 
@@ -739,7 +739,7 @@ L'objectif n'est donc pas uniquement de stocker des logs, mais de **transformer 
 
 ---
 
-# 🧪 Dataset
+#  Dataset
 
 Les données présentes dans ce repository ont été générées dans un **laboratoire VirtualBox contrôlé** à des fins pédagogiques.
 
@@ -759,7 +759,7 @@ Cela permet de tester le pipeline sans devoir reproduire immédiatement l'intég
 
 ---
 
-# 🚧 Limites et améliorations futures
+#  Limites et améliorations futures
 
 Le projet est avant tout un prototype DFIR pédagogique.
 
@@ -781,7 +781,7 @@ Plusieurs améliorations sont possibles :
 
 ---
 
-# ⚠️ Usage éducatif et éthique
+#  Usage éducatif et éthique
 
 Ce projet est développé uniquement à des fins :
 
@@ -798,14 +798,14 @@ N'utilisez pas les techniques ou outils présentés contre des systèmes, résea
 
 ---
 
-# 👥 Auteurs
+#  Auteurs
 
 Projet réalisé en binôme dans le cadre d'un travail pratique autour de la **Digital Forensics & Incident Response (DFIR)**, de la corrélation d'événements et de l'analyse de sécurité.
 Réalisé par : Laaroussi Imane et Hamdaoui Abdelbari .
 
 ---
 
-## ⭐ À propos
+##  À propos
 
 Ce projet explore comment combiner la **télémétrie endpoint Sysmon** et la **visibilité réseau PCAP** afin de construire un pipeline DFIR capable de transformer des données brutes en informations exploitables pour une investigation.
 
